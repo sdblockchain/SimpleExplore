@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>SimpleData BlockChain Explorer - Data</title>
+    </head>
+    <body>
+        <h1 align="center">BlockChain Explorer - Data</h1>
+          <ul>
+            {% for text in txt %}
+            <li>Index:{{ text["index"] }}</li>
+            <li>timestamp:{{ text["timestamp"] }}</li>
+            <li>BlockData:{{ text["data"] }}</li>
+            <br/>
+            {% endfor %}
+          </ul>
+    </body>
+</html>
