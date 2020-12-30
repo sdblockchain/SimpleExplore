@@ -6,20 +6,18 @@ web = Flask(__name__)
 
 @web.route('/')
 def explore():
-    res = requests.get('https://mainnet.cn.utools.club/blocks')
+    node = "https://mainnet.cn.utools.club"
+    res = requests.get(str(node) + '/blocks')
     text = res.text
     txt = json.loads(text)
-    return render_template("page.html",txt = txt)
+    return render_template("page.html",txt = txt,node=node)
 
-@web.route('/data')
-def explore_data():
-    try:
-        block_num = request.args.get("id")
-    except:
-        block_num = request.args.get("11")
-    res = requests.get('https://mainnet.cn.utools.club/blocks')
+@web.route('/node')
+def explore_node():
+    node = request.args.get('node')
+    res = requests.get(str(node) + '/blocks')
     text = res.text
     txt = json.loads(text)
-    return render_template("data.html",data = txt)
+    return render_template("page.html",txt = txt,node=node)
 
 web.run(host='0.0.0.0',port='5001')

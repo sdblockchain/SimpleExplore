@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1 align="center">BlockChain Explorer</h1>
+        <form action="/node" method="get">
+            <span>Node url(contains http(s)://): <input type="text" name="node" value="{{ node }}" /></span>
+          <input type="submit" value="Explore" />
+        </form>
           <ul>
             {% for text in txt %}
             <li>Index:{{ text["index"] }}</li>
